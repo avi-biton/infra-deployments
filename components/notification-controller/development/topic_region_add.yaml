@@ -3,6 +3,6 @@
   path: /spec/template/spec/containers/0/env
   value: 
     - name: NOTIFICATION_TOPIC_ARN
-      value: <TOPIC_ARN>
+      value: "arn:aws:sns:us-east-1:663944276957:scan_topic"
     - name: NOTIFICATION_REGION
-      value: <REGION>
+      value: "us-east-1"
