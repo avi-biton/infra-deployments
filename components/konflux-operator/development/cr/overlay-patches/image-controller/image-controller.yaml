@@ -8,10 +8,7 @@ spec:
     # IMAGE_CONTROLLER_QUAY_TOKEN are set
     enabled: false
     spec:
-      # TODO: add logEncoder: console once KonfluxImageControllerSpec
-      # gains a logEncoder field (matching KonfluxBuildServiceSpec).
-      # The infra-deployments development layer sets --zap-encoder=console
-      # via logs-in-console-format-cmd-arg-patch.yaml.
+      logEncoder: console
       imageControllerManager:
         replicas: 1
         manager:
