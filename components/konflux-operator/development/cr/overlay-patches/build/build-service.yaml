@@ -5,16 +5,20 @@ metadata:
 spec:
   buildService:
     spec:
+      pacWebhookInsecureSSL: true
+      logEncoder: console
+      webhookURLs:
+        "https://codeberg.org": "SMEE_CHANNEL_PLACEHOLDER"
       buildControllerManager:
         replicas: 1
         manager:
           env:
-            - name: PAC_WEBHOOK_INSECURE_SSL
-              value: "1"
+            - name: IMAGE_TAG_ON_PR_EXPIRATION
+              value: ""
           resources:
             requests:
-              cpu: 30m
-              memory: 128Mi
+              cpu: 10m
+              memory: 64Mi
             limits:
-              cpu: 30m
-              memory: 128Mi
+              cpu: 500m
+              memory: 1024Mi
