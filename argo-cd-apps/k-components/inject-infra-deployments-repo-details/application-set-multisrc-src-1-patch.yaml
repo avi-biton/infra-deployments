@@ -4,4 +4,4 @@
   value: https://github.com/avi-biton/infra-deployments.git
 - op: replace
   path: /spec/template/spec/sources/1/targetRevision
-  value: preview-test-operator
+  value: preview-preview-test-operator
