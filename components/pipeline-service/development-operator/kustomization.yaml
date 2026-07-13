@@ -22,3 +22,28 @@ patches:
       metadata:
         name: appstudio-pipelines-scc
       $patch: delete
+  - target:
+      group: operator.tekton.dev
+      version: v1alpha1
+      kind: TektonConfig
+      name: config
+    patch: |
+      apiVersion: operator.tekton.dev/v1alpha1
+      kind: TektonConfig
+      metadata:
+        name: config
+      spec:
+        pipeline:
+          options:
+            statefulSets:
+              tekton-pipelines-controller:
+                spec:
+                  template:
+                    spec:
+                      topologySpreadConstraints:
+                        - maxSkew: 1
+                          topologyKey: topology.kubernetes.io/zone
+                          whenUnsatisfiable: ScheduleAnyway
+                          labelSelector:
+                            matchLabels:
+                              app: tekton-pipelines-controller
