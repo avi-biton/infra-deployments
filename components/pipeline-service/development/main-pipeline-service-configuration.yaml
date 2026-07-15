@@ -2171,13 +2171,13 @@ spec:
                     averageUtilization: 100
                     type: Utilization
                 type: Resource
-            minReplicas: 2
+            minReplicas: 1
     performance:
-      buckets: 2
+      buckets: 1
       disable-ha: false
       kube-api-burst: 50
       kube-api-qps: 50
-      replicas: 2
+      replicas: 1
       threads-per-controller: 32
       statefulset-ordinals: true
   platforms:
