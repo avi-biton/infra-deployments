@@ -1,0 +1,25 @@
+apiVersion: konflux.konflux-ci.dev/v1alpha1
+kind: Konflux
+metadata:
+  name: konflux
+spec:
+  ui:
+    spec:
+      ingress:
+        nodePortService:
+          httpsPort: 30011
+      proxy:
+        endpoints:
+          kite:
+            enabled: true
+          kubearchive:
+            enabled: true
+        replicas: 3
+        reverseProxy:
+          resources:
+            requests:
+              cpu: 30m
+              memory: 128Mi
+            limits:
+              cpu: 300m
+              memory: 256Mi

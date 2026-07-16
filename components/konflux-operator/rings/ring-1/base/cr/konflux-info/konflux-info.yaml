@@ -1,0 +1,25 @@
+apiVersion: konflux.konflux-ci.dev/v1alpha1
+kind: Konflux
+metadata:
+  name: konflux
+spec:
+  info:
+    spec:
+      clusterConfig:
+        data:
+          allowCacheProxy: true
+          allowPackageRegistryProxy: true
+          httpProxy: squid.caching.svc.cluster.local:3128
+          noProxy: ""
+          packageRegistryProxyGomodUrl: https://artifact-registry-proxy.caching.svc.cluster.local/repository/go-proxy
+          packageRegistryProxyNpmUrl: https://artifact-registry-proxy.caching.svc.cluster.local/repository/npm-proxy
+          packageRegistryProxyPipUrl: https://artifact-registry-proxy.caching.svc.cluster.local/repository/pypi-proxy/simple
+          packageRegistryProxyPnpmUrl: https://artifact-registry-proxy.caching.svc.cluster.local/repository/npm-proxy
+          packageRegistryProxyYarnUrl: https://artifact-registry-proxy.caching.svc.cluster.local/repository/npm-proxy
+      publicInfo:
+        environment: staging
+        visibility: private
+      banner:
+        items:
+          - summary: "Want to **display important updates** here? [See how to create a banner](https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-info/README.md)."
+            type: info
